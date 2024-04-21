@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cbnqldvp7k4bj"
+path="res://.godot/imported/Town Music 1.wav-b90f0c4ef5928b3e3beafd1fccb2d45d.sample"
+
+[deps]
+
+source_file="res://FREE_PixelFlow_fantasy/OST/Town Music 1.wav"
+dest_files=["res://.godot/imported/Town Music 1.wav-b90f0c4ef5928b3e3beafd1fccb2d45d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

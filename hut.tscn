@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://w643g6viefvc"]
+
+[ext_resource type="Texture2D" uid="uid://8adjehfc68at" path="res://generic-rpg-pack_v0.4_(alpha-release)_vacaroxa/rpg-pack/props n decorations/generic-rpg-house-inn.png" id="1_3p6on"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ok15p"]
+size = Vector2(108, 152)
+
+[node name="Hut" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(58, 77)
+shape = SubResource("RectangleShape2D_ok15p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(57, 79)
+scale = Vector2(1.54286, 1.69318)
+texture = ExtResource("1_3p6on")

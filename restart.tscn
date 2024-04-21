@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bgiwbqj5w5rk2"]
+
+[node name="Button" type="Button"]
+z_index = 50
+offset_left = 542.0
+offset_top = 353.0
+offset_right = 607.0
+offset_bottom = 384.0
+text = "Restart"

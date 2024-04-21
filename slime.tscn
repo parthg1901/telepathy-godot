@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://2b51p0wblb2p"]
+
+[ext_resource type="Texture2D" uid="uid://bs7l7sm4mii62" path="res://generic-rpg-pack_v0.4_(alpha-release)_vacaroxa/rpg-pack/mobs/slime-blue.png" id="1_x3vwq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q8amk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2v7qf"]
+atlas = ExtResource("1_x3vwq")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ln01"]
+atlas = ExtResource("1_x3vwq")
+region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ps72l"]
+atlas = ExtResource("1_x3vwq")
+region = Rect2(32, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfrgk"]
+atlas = ExtResource("1_x3vwq")
+region = Rect2(48, 0, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_455ad"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2v7qf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ln01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ps72l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfrgk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Slime" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_q8amk")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(4.76837e-07, -7)
+scale = Vector2(1.625, 1.54167)
+sprite_frames = SubResource("SpriteFrames_455ad")
+autoplay = "default"
+frame_progress = 0.430473

@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbimur8dulfly"]
+
+[sub_resource type="GDScript" id="GDScript_dfub7"]
+script/source = "extends Node2D
+
+@onready var player = get_node(\"/root/Main/Player\")
+@onready var node = get_node(\"/root/Main/Node2D\")
+
+@onready var label = $Label
+
+const base_text = \"[E] to \"
+
+var active_areas = []
+var can_interact = true
+
+func register_area(area: InteractionArea):
+	active_areas.push_back(area)
+	label.show()
+	
+	
+func unregister_area(area: InteractionArea):
+	var index = active_areas.find(area)
+	if index != -1:
+		active_areas.remove_at(index)
+		label.hide()
+		
+
+func _process(delta):
+	if active_areas.size() > 0 && can_interact:
+		label.text = base_text + active_areas[active_areas.size()-1].action_name
+		label.global_position = active_areas[active_areas.size()-1].global_position
+		label.global_position.y -= 36
+		label.global_position.x -= label.size.x / 2
+
+
+func _input(event):
+	if event.is_action_pressed(\"interact\") && can_interact:
+		if active_areas.size() > 0:
+			can_interact = false
+			label.hide()
+			
+			await active_areas[active_areas.size()-1].interact.call()
+			
+			can_interact = true
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_cnm61"]
+
+[node name="InteractionManager" type="Node2D"]
+script = SubResource("GDScript_dfub7")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = 20
+offset_left = -78.0
+offset_top = -26.0
+offset_right = 86.0
+offset_bottom = 25.0
+text = "[E] TO INTERACT"
+label_settings = SubResource("LabelSettings_cnm61")
+horizontal_alignment = 1
+vertical_alignment = 1

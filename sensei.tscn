@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bq2ed8cjme5w3"]
+
+[ext_resource type="Texture2D" uid="uid://dge7rqbkuian5" path="res://generic-rpg-pack_v0.4_(alpha-release)_vacaroxa/rpg-pack/chars/sensei/sensei.png" id="1_k72wh"]
+[ext_resource type="Script" path="res://InteractionArea.gd" id="3_25jxw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dm7wi"]
+size = Vector2(27, 33)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rtyis"]
+radius = 54.0
+
+[node name="Sensei" type="CharacterBody2D"]
+texture_filter = 1
+disable_mode = 1
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(17, 23)
+shape = SubResource("RectangleShape2D_dm7wi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(15.375, 20.3125)
+scale = Vector2(1.82812, 1.71196)
+texture = ExtResource("1_k72wh")
+
+[node name="InteractionArea" type="Area2D" parent="Sprite2D"]
+position = Vector2(-8.41028, -11.8651)
+scale = Vector2(0.54701, 0.584126)
+script = ExtResource("3_25jxw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/InteractionArea"]
+position = Vector2(18, 23)
+shape = SubResource("CircleShape2D_rtyis")
+
+[connection signal="body_entered" from="Sprite2D/InteractionArea" to="Sprite2D/InteractionArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Sprite2D/InteractionArea" to="Sprite2D/InteractionArea" method="_on_body_exited"]

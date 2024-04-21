@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxplorl5rm83e"]
+
+[ext_resource type="Texture2D" uid="uid://d26b2v224ntok" path="res://generic-rpg-pack_v0.4_(alpha-release)_vacaroxa/rpg-pack/chars/vendor/generic-rpg-vendor.png" id="1_auuka"]
+[ext_resource type="Script" path="res://InteractionArea.gd" id="2_l20o1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nh0m7"]
+size = Vector2(60, 60)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fnr6s"]
+radius = 45.3982
+
+[node name="Vendor" type="CharacterBody2D"]
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nh0m7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.32143, 1.34314)
+texture = ExtResource("1_auuka")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+script = ExtResource("2_l20o1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(2, -1)
+shape = SubResource("CircleShape2D_fnr6s")
+
+[connection signal="body_entered" from="InteractionArea" to="InteractionArea" method="_on_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="InteractionArea" method="_on_body_exited"]
